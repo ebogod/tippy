@@ -1,2 +1,3 @@
 # tippy
-An App to calculate the tipping amount
+tippy is a tip calculator application for iOS.
+
