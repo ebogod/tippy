@@ -38,7 +38,10 @@ As part of your pre-work submission, please reflect on the app and answer the fo
 
 **Question 1**: "What are your reactions to the iOS app development platform so far? How would you describe outlets and actions to another developer? Bonus: any idea how they are being implemented under the hood? (It might give you some ideas if you right-click on the Storyboard and click Open As->Source Code")
 
-**Answer:** [Enter your answer here in a paragraph or two].
+**Answer:** My reactions to the iOS app development so far is that there is a lot of drag and dropping, it is very visual. Other languages that I have worked with in the past haven’t felt as visual as iOS development even when it is with Javascript and web design. iOS development also feels very connected to the IDE, and has a lot of “magic” built in with xCode.
+
+I would describe outlets and actions to another developer as a way to connect the visual components to the code. Outlets let you define and use the component in code while actions are where the logic or specific events are connected to. For example, if we want to change the color of a text field in code we only need an outlet, versus if we want to have the logic of tapping on the text field to make an animation appear we need an action. If a developer is familiar to web development I could use the example of how web connects components with id or class names in order for code to trigger an action.
+.
 
 Question 2: "Swift uses [Automatic Reference Counting](https://developer.apple.com/library/content/documentation/Swift/Conceptual/Swift_Programming_Language/AutomaticReferenceCounting.html#//apple_ref/doc/uid/TP40014097-CH20-ID49) (ARC), which is not a garbage collector, to manage memory. Can you explain how you can get a strong reference cycle for closures? (There's a section explaining this concept in the link, how would you summarize as simply as possible?)"
 
