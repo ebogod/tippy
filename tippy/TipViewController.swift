@@ -30,6 +30,11 @@ class TipViewController: UIViewController {
         tipControl.selectedSegmentIndex = selection
     }
 
+    override func viewDidLoad() {
+        super.viewDidLoad()
+        billField.becomeFirstResponder()
+    }
+
     @IBAction func onTap(_ sender: Any) {
         view.endEditing(true)
     }
