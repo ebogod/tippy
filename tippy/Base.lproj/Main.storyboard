@@ -9,7 +9,7 @@
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
-        <!--Tip Calculator-->
+        <!--Tippy-->
         <scene sceneID="tne-QT-ifu">
             <objects>
                 <viewController id="BYZ-38-t0r" customClass="TipViewController" customModule="tippy" customModuleProvider="target" sceneMemberID="viewController">
@@ -35,7 +35,7 @@
                                 <nil key="highlightedColor"/>
                             </label>
                             <view contentMode="scaleToFill" misplaced="YES" id="DNk-kD-evb">
-                                <rect key="frame" x="0.0" y="213" width="320" height="115"/>
+                                <rect key="frame" x="0.0" y="233" width="320" height="115"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <subviews>
                                     <segmentedControl opaque="NO" contentMode="scaleToFill" misplaced="YES" contentHorizontalAlignment="left" contentVerticalAlignment="top" segmentControlStyle="plain" selectedSegmentIndex="0" id="kWd-X4-ovm">
@@ -84,12 +84,9 @@
                         </subviews>
                         <color key="backgroundColor" red="0.15686274509803921" green="0.76470588235294112" blue="0.2196078431372549" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <gestureRecognizers/>
-                        <connections>
-                            <outletCollection property="gestureRecognizers" destination="sIj-GB-KSQ" appends="YES" id="nSv-Qa-WCN"/>
-                        </connections>
                     </view>
-                    <navigationItem key="navigationItem" title="Tip Calculator" id="FJQ-D4-hJT">
-                        <barButtonItem key="rightBarButtonItem" title="Settings" id="dHq-1O-69V">
+                    <navigationItem key="navigationItem" title="Tippy" id="FJQ-D4-hJT">
+                        <barButtonItem key="rightBarButtonItem" title="⚙" id="dHq-1O-69V">
                             <connections>
                                 <segue destination="Fo6-OM-9ti" kind="push" id="fj4-fo-ahn"/>
                             </connections>

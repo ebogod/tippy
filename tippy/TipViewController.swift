@@ -20,6 +20,7 @@ class TipViewController: UIViewController {
     @IBOutlet weak var totalLabel: UILabel!
     @IBOutlet weak var tipControl: UISegmentedControl!
     @IBOutlet weak var valuesView: UIView!
+    var canAnimate: Bool = true
 
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
@@ -35,16 +36,16 @@ class TipViewController: UIViewController {
         billField.becomeFirstResponder()
     }
 
-    @IBAction func onTap(_ sender: Any) {
-        view.endEditing(true)
-    }
-
     @IBAction func calculateTip(_ sender: Any) {
 
         let bill = Double(billField.text!) ?? 0
-        UIView.animate(withDuration: 0.2, animations: {
-            self.valuesView.alpha = (bill == 0) ? 0 : 1
-        })
+        if canAnimate {
+            UIView.animate(withDuration: 0.2, animations: {
+                self.canAnimate = false
+                self.valuesView.frame.origin.y -= 20.0
+                self.valuesView.alpha = (bill == 0) ? 0 : 1
+            })
+        }
         
         let tipPercentages = [0.18, 0.2, 0.25]
         let tip = bill * tipPercentages[tipControl.selectedSegmentIndex]
