@@ -15,13 +15,14 @@ class SettingsViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         let defaults = UserDefaults.standard
-        let selection = defaults.integer(forKey: "default_tip_selection")
+        let selection = defaults.integer(forKey: Keys.defaultTipKey)
         defaultTipControl.selectedSegmentIndex = selection
     }
 
     @IBAction func tipDefaultChanged(_ sender: Any) {
         let defaults = UserDefaults.standard
-        defaults.set(defaultTipControl.selectedSegmentIndex, forKey: "default_tip_selection")
+        defaults.set(defaultTipControl.selectedSegmentIndex, forKey: Keys.defaultTipKey)
         defaults.synchronize()
     }
+    
 }

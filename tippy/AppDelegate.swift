@@ -35,12 +35,29 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 
     func applicationDidBecomeActive(_ application: UIApplication) {
         // Restart any tasks that were paused (or not yet started) while the application was inactive. If the application was previously in the background, optionally refresh the user interface.
+        let defaults = UserDefaults.standard
+        let lastBillDate = defaults.object(forKey: Keys.CurrentBill.dateKey) as! NSDate
+
+        if lastBillDate.addMinutes(minsToAdd: 10).isLessThanDate(dateToCompare: NSDate()) {
+            defaults.set(0, forKey: Keys.CurrentBill.valueKey)
+            defaults.set(NSDate(), forKey: Keys.CurrentBill.dateKey)
+        }
+
     }
 
     func applicationWillTerminate(_ application: UIApplication) {
         // Called when the application is about to terminate. Save data if appropriate. See also applicationDidEnterBackground:.
     }
 
-
 }
 
+extension NSDate {
+    func addMinutes(minsToAdd: Int) -> NSDate {
+        let secondsInMinutes = (Double(minsToAdd) * 60) as TimeInterval
+        return self.addingTimeInterval(secondsInMinutes)
+    }
+
+    func isLessThanDate(dateToCompare: NSDate) -> Bool {
+        return self.compare(dateToCompare as Date) == ComparisonResult.orderedAscending
+    }
+}

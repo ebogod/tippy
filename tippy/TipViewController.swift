@@ -24,10 +24,16 @@ class TipViewController: UIViewController {
 
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
-        let bill = Double(billField.text!) ?? 0
-        valuesView.alpha = (bill == 0) ? 0 : 1
         let defaults = UserDefaults.standard
-        let selection = defaults.integer(forKey: "default_tip_selection")
+        let bill = defaults.double(forKey: Keys.CurrentBill.valueKey)
+        valuesView.alpha = (bill == 0) ? 0 : 1
+
+        if bill > 0 {
+            billField.text = String(bill)
+            updateTip(bill: bill)
+        }
+
+        let selection = defaults.integer(forKey: Keys.defaultTipKey)
         tipControl.selectedSegmentIndex = selection
     }
 
@@ -37,8 +43,12 @@ class TipViewController: UIViewController {
     }
 
     @IBAction func calculateTip(_ sender: Any) {
-
         let bill = Double(billField.text!) ?? 0
+        updateCurrentBill(billValue: bill)
+        updateTip(bill: bill)
+    }
+
+    func updateTip(bill: Double) {
         if canAnimate {
             UIView.animate(withDuration: 0.2, animations: {
                 self.canAnimate = false
@@ -46,13 +56,19 @@ class TipViewController: UIViewController {
                 self.valuesView.alpha = (bill == 0) ? 0 : 1
             })
         }
-        
+
         let tipPercentages = [0.18, 0.2, 0.25]
         let tip = bill * tipPercentages[tipControl.selectedSegmentIndex]
         let total = bill + tip
 
         tipLabel.text = String(format: "$%.2f", tip)
         totalLabel.text = String(format: "$%.2f", total)
+    }
+
+    func updateCurrentBill(billValue: Double) {
+        let defaults = UserDefaults.standard
+        defaults.set(billValue, forKey: Keys.CurrentBill.valueKey)
+        defaults.set(NSDate(), forKey: Keys.CurrentBill.dateKey)
     }
 }
 

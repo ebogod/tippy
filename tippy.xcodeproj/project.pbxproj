@@ -15,6 +15,9 @@
 		F99596BE1F3D505800888A9B /* tippyTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = F99596BD1F3D505800888A9B /* tippyTests.swift */; };
 		F99596C91F3D505800888A9B /* tippyUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = F99596C81F3D505800888A9B /* tippyUITests.swift */; };
 		F99596EB1F42A3B200888A9B /* SettingsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F99596EA1F42A3B200888A9B /* SettingsViewController.swift */; };
+		F9FC4E621F4D4DE200F78906 /* KeyConstants.swift in Sources */ = {isa = PBXBuildFile; fileRef = F9FC4E611F4D4DE200F78906 /* KeyConstants.swift */; };
+		F9FC4E631F4D4DE200F78906 /* KeyConstants.swift in Sources */ = {isa = PBXBuildFile; fileRef = F9FC4E611F4D4DE200F78906 /* KeyConstants.swift */; };
+		F9FC4E641F4D4DE200F78906 /* KeyConstants.swift in Sources */ = {isa = PBXBuildFile; fileRef = F9FC4E611F4D4DE200F78906 /* KeyConstants.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -49,6 +52,7 @@
 		F99596C81F3D505800888A9B /* tippyUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = tippyUITests.swift; sourceTree = "<group>"; };
 		F99596CA1F3D505800888A9B /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		F99596EA1F42A3B200888A9B /* SettingsViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SettingsViewController.swift; sourceTree = "<group>"; };
+		F9FC4E611F4D4DE200F78906 /* KeyConstants.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = KeyConstants.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -106,6 +110,7 @@
 				F99596AF1F3D505800888A9B /* Assets.xcassets */,
 				F99596B11F3D505800888A9B /* LaunchScreen.storyboard */,
 				F99596B41F3D505800888A9B /* Info.plist */,
+				F9FC4E611F4D4DE200F78906 /* KeyConstants.swift */,
 			);
 			path = tippy;
 			sourceTree = "<group>";
@@ -265,6 +270,7 @@
 				F99596AB1F3D505800888A9B /* TipViewController.swift in Sources */,
 				F99596A91F3D505800888A9B /* AppDelegate.swift in Sources */,
 				F99596EB1F42A3B200888A9B /* SettingsViewController.swift in Sources */,
+				F9FC4E621F4D4DE200F78906 /* KeyConstants.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -273,6 +279,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				F99596BE1F3D505800888A9B /* tippyTests.swift in Sources */,
+				F9FC4E631F4D4DE200F78906 /* KeyConstants.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -281,6 +288,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				F99596C91F3D505800888A9B /* tippyUITests.swift in Sources */,
+				F9FC4E641F4D4DE200F78906 /* KeyConstants.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
