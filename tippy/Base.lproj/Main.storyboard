@@ -94,6 +94,7 @@
                     </navigationItem>
                     <connections>
                         <outlet property="billField" destination="y5f-RW-SWe" id="TYI-Bn-fB0"/>
+                        <outlet property="currencyLabel" destination="pj5-4a-NpF" id="sDD-Fx-Tlt"/>
                         <outlet property="tipControl" destination="kWd-X4-ovm" id="MOc-9C-AHd"/>
                         <outlet property="tipLabel" destination="slJ-4H-suV" id="qHT-fh-F77"/>
                         <outlet property="totalLabel" destination="7jE-dQ-UAO" id="IIf-JP-T21"/>

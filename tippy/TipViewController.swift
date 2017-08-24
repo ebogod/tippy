@@ -20,7 +20,13 @@ class TipViewController: UIViewController {
     @IBOutlet weak var totalLabel: UILabel!
     @IBOutlet weak var tipControl: UISegmentedControl!
     @IBOutlet weak var valuesView: UIView!
+    @IBOutlet weak var currencyLabel: UILabel!
+
     var canAnimate: Bool = true
+    var symbol: String {
+        let locale = Locale.current
+        return locale.currencySymbol!
+    }
 
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
@@ -32,6 +38,7 @@ class TipViewController: UIViewController {
             billField.text = String(bill)
             updateTip(bill: bill)
         }
+        currencyLabel.text = symbol
 
         let selection = defaults.integer(forKey: Keys.defaultTipKey)
         tipControl.selectedSegmentIndex = selection
@@ -43,9 +50,9 @@ class TipViewController: UIViewController {
     }
 
     @IBAction func calculateTip(_ sender: Any) {
-        let bill = Double(billField.text!) ?? 0
-        updateCurrentBill(billValue: bill)
-        updateTip(bill: bill)
+        let bill = billField.text?.doubleValue
+        updateCurrentBill(billValue: bill!)
+        updateTip(bill: bill!)
     }
 
     func updateTip(bill: Double) {
@@ -61,14 +68,39 @@ class TipViewController: UIViewController {
         let tip = bill * tipPercentages[tipControl.selectedSegmentIndex]
         let total = bill + tip
 
-        tipLabel.text = String(format: "$%.2f", tip)
-        totalLabel.text = String(format: "$%.2f", total)
+        tipLabel.text = tip.curencyValue
+        totalLabel.text = total.curencyValue
     }
 
     func updateCurrentBill(billValue: Double) {
         let defaults = UserDefaults.standard
         defaults.set(billValue, forKey: Keys.CurrentBill.valueKey)
         defaults.set(NSDate(), forKey: Keys.CurrentBill.dateKey)
+    }
+
+}
+
+extension String {
+    static let numberFormatter = NumberFormatter()
+    var doubleValue: Double {
+        String.numberFormatter.decimalSeparator = "."
+        if let result = String.numberFormatter.number(from: self) {
+            return result.doubleValue
+        } else {
+            String.numberFormatter.decimalSeparator = ","
+            if let result = String.numberFormatter.number(from: self) {
+                return result.doubleValue
+            }
+        }
+        return 0
+    }
+}
+
+extension Double {
+    var curencyValue: String {
+        let formatter = NumberFormatter()
+        formatter.numberStyle = .currency
+        return formatter.string(from: self as NSNumber)!
     }
 }
 
